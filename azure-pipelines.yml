@@ -6,14 +6,38 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'vs2017-win2016'
+stages:
+- stage: Dev
+  jobs:
+  - jobs: Dev
+    pool:
+      vmImage: 'vs2017-win2016'
+    continueOnError: false
+    steps:
+    - script: echo "Developement environment build"
+- stage: Test
+  jobs:
+  - jobs: Test
+    pool:
+      vmImage: 'vs2017-win2016'
+    continueOnError: false
+    steps:
+    - script: echo "Test environment build"
+- stage: Stage
+  jobs:
+  - jobs: Stage
+    pool:
+      vmImage: 'vs2017-win2016'
+    continueOnError: false
+    steps:
+    - script: echo "Stage environment build"
+- stage: Prod
+  jobs:
+  - jobs: Prod
+    pool:
+      vmImage: 'vs2017-win2016'
+    continueOnError: false
+    steps:
+    - script: echo "Prod environment build"
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
