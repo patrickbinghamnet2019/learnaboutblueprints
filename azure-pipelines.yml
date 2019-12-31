@@ -6,17 +6,17 @@
 trigger:
 - master
 - releases/*
-variables:
-- group: subscriptionsforstages
 stages:
 - stage: Dev
+  variables: devenvvariables
   jobs:
   - job: Dev
     pool:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Developement environment build"
-    - script: echo "Using subscription $(devenvsubid)"
+    - script: echo "Using subscription $(subid)"
+    - script: echo "The environment variable is $(envname)"
 - stage: Test
   jobs:
   - job: Test
@@ -24,7 +24,8 @@ stages:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Test environment build"
-    - script: echo "Using subscription $(testenvsubid)"
+    - script: echo "Using subscription $(subid)"
+    - script: echo "The environment variable is $(envname)"
 - stage: Stage
   jobs:
   - job: Stage
@@ -32,7 +33,8 @@ stages:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Stage environment build"
-    - script: echo "Using subscription $(stageenvsubid)"
+    - script: echo "Using subscription $(subid)"
+    - script: echo "The environment variable is $(envname)"
 - stage: Prod
   jobs:
   - job: Prod
@@ -40,6 +42,7 @@ stages:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Prod environment build"
-    - script: echo "Using subscription $(prodenvsubid)"
+    - script: echo "Using subscription $(subid)"
+    - script: echo "The environment variable is $(envname)"
 
 
