@@ -16,7 +16,7 @@
           "variables": {},
           "resources": []
       },
-      "resourceGroup": "infra-$(custname)-$(envname)",
+      "resourceGroup": "SingleRG",
       "displayName": "My ARM Template",
       "parameters": {
         "myTemplateParameter": {

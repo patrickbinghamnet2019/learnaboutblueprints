@@ -1,9 +1,8 @@
-
 {
     "properties": {
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a451c1ef-c6ca-483d-87ed-f49761e3ffb5",
         "parameters": {},
-        "resourceGroup": "infra-$(custname)-$(envname)",
+        "resourceGroup": "SingleRG",
         "dependsOn": [],
         "displayName": "My Policy Definition that will be assigned (Currently auditing usage of custom roles)",
         "metadata": {
@@ -13,3 +12,5 @@
     "kind": "policyAssignment",
     "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
+
+
