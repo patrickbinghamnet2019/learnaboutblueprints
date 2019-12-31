@@ -18,6 +18,13 @@ stages:
     - script: echo "Developement environment build"
     - script: echo "Using subscription $(subid)"
     - script: echo "The environment variable is $(envname)"
+    - task: AssignBlueprint@1
+      inputs:
+        azureSubscription: 'BinghamDev (6edd3889-d778-4efa-a9d8-2653d60d531f)'
+        AssignmentName: 'AssignDevBlueprint'
+        BlueprintName: 'baseblueprint.json'
+        ParametersFile: './'
+        AlternateSubscription: false
 - stage: Test
   variables:
   - group: testenvvariables
