@@ -5,38 +5,35 @@
 
 trigger:
 - master
+- releases/*
 
 stages:
 - stage: Dev
   jobs:
-  - jobs: Dev
+  - job: Dev
     pool:
       vmImage: 'vs2017-win2016'
-    continueOnError: false
     steps:
     - script: echo "Developement environment build"
 - stage: Test
   jobs:
-  - jobs: Test
+  - job: Test
     pool:
       vmImage: 'vs2017-win2016'
-    continueOnError: false
     steps:
     - script: echo "Test environment build"
 - stage: Stage
   jobs:
-  - jobs: Stage
+  - job: Stage
     pool:
       vmImage: 'vs2017-win2016'
-    continueOnError: false
     steps:
     - script: echo "Stage environment build"
 - stage: Prod
   jobs:
-  - jobs: Prod
+  - job: Prod
     pool:
       vmImage: 'vs2017-win2016'
-    continueOnError: false
     steps:
     - script: echo "Prod environment build"
 
