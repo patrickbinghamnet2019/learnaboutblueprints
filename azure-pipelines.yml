@@ -24,7 +24,7 @@ stages:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Test environment build"
-        - script: echo "Using subscription $(testenvsubid)"
+    - script: echo "Using subscription $(testenvsubid)"
 - stage: Stage
   jobs:
   - job: Stage
