@@ -8,7 +8,8 @@ trigger:
 - releases/*
 stages:
 - stage: Dev
-  variables: devenvvariables
+  variables:
+  -group: devenvvariables
   jobs:
   - job: Dev
     pool:
@@ -18,6 +19,8 @@ stages:
     - script: echo "Using subscription $(subid)"
     - script: echo "The environment variable is $(envname)"
 - stage: Test
+  variables:
+  - group: testenvvariables
   jobs:
   - job: Test
     pool:
@@ -27,6 +30,8 @@ stages:
     - script: echo "Using subscription $(subid)"
     - script: echo "The environment variable is $(envname)"
 - stage: Stage
+  variables:
+  - group: stageenvvariables
   jobs:
   - job: Stage
     pool:
@@ -36,6 +41,8 @@ stages:
     - script: echo "Using subscription $(subid)"
     - script: echo "The environment variable is $(envname)"
 - stage: Prod
+  variables:
+  - group: prodenvvariables
   jobs:
   - job: Prod
     pool:
