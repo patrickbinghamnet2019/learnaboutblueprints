@@ -32,7 +32,7 @@ stages:
       vmImage: 'vs2017-win2016'
     steps:
     - script: echo "Stage environment build"
-        - script: echo "Using subscription $(stageenvsubid)"
+    - script: echo "Using subscription $(stageenvsubid)"
 - stage: Prod
   jobs:
   - job: Prod
