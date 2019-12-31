@@ -9,7 +9,7 @@ trigger:
 stages:
 - stage: Dev
   variables:
-  -group: devenvvariables
+  - group: devenvvariables
   jobs:
   - job: Dev
     pool:
